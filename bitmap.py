@@ -2,7 +2,10 @@
 from PIL import Image;
 import PIL ;
 import numpy as np;
-#import cv2;
+def pset(images,x,y,r,g,b):
+	images[y][x][0]=r;
+	images[y][x][1]=g;
+	images[y][x][2]=b;
 n=0;
 nn=0;
 nnn=0;
@@ -12,8 +15,8 @@ print ("XXXX");
 image1=np.zeros((64,64,3),np.uint8);
 nn=range(0,63);
 for n in nn:
-	image1[n][n][1]=255;
+	pset(image1,n,n,0,255,0);
 for n in nn:
-	image1[n][63-n][1]=255;
+	pset(image1,n,63-n,0,255,0);
 im=Image.fromarray(image1);
 im.save("my.jpeg");
