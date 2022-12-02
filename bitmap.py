@@ -16,6 +16,16 @@ def hline(images,x1,y1,x2,r,g,b):
 	except:
 		return 1
 	return 0;
+def vline(images,x1,y1,y2,r,g,b):
+	yyy=range(y1,y2)
+	try:
+		for yy in yyy:
+			images[yy][x1][0]=r;
+			images[yy][x1][1]=g;
+			images[yy][x1][2]=b;
+	except:
+		return 1
+	return 0;
 n=0;
 nn=0;
 nnn=0;
@@ -25,6 +35,6 @@ print ("XXXX");
 image1=np.zeros((64,64,3),np.uint8);
 nn=range(0,63);
 for n in nn:
-	hline(image1,0,n,64,0,255,0)
+	vline(image1,n,0,64,0,255,0)
 im=Image.fromarray(image1);
 im.save("my.jpeg");
